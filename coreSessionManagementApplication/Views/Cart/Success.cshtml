@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+<div class="container">
+    <div class="text-center">
+        <div class="alert-success">
+            <h1 class="display-4">Order success</h1>
+            <h1>Order-id: @ViewBag.id</h1>
+        </div>
+    </div>
+</div><br/><br/>
+
+<h2>Your order is successfull !! and will be delivered in 30 mins</h2><br/><br/>
+<form asp-action="Success" methos="post">
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Bill</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.cart)
+            {
+                <tr>
+                    <td>@item.Product.Id</td>
+                    <td>@item.Product.Name</td>
+                    <td>@item.Product.Price</td>
+                    <td>@item.Quantity</td>
+                    <td>@(item.Product.Price* item.Quantity)</td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>
+                </th>
+                <th>
+                </th>
+                <th>Total</th>
+                <th>@ViewBag.total</th>
+            </tr>
+        </tfoot>
+    </table>
+    <a asp-action="Home" name="homescreen" class="btn btn-success">Home</a> |
+</form>
+
+

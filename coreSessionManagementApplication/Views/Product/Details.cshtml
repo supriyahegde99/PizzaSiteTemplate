@@ -1,0 +1,30 @@
+﻿@model coreSessionManagementApplication.Models.Product
+
+@{ ViewData["Title"] = "Details"; }
+
+
+
+<div>
+    <img src="@Html.DisplayFor(model => model.Image)" />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+       
+    </dl>
+</div>
+<div>
+    
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    <a asp-controller="Cart" asp-action="Buy" class="btn btn-outline-success" asp-route-id="@Model.Id">Add To Cart</a> |
+
+</div>
